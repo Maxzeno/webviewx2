@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:webviewx/webviewx.dart';
+import 'package:webviewx2/webviewx.dart';
 
 /// This dialog will basically show up right on top of the webview.
 ///

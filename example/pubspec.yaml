@@ -13,7 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  webviewx:
+  webviewx2:
     path: ../
 
 dev_dependencies:

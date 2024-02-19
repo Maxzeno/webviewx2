@@ -1,5 +1,5 @@
-import 'package:webviewx/src/utils/source_type.dart';
-import 'package:webviewx/src/utils/webview_content_model.dart';
+import 'package:webviewx2/src/utils/source_type.dart';
+import 'package:webviewx2/src/utils/webview_content_model.dart';
 
 /// Interface for controller
 abstract class WebViewXController<T> {

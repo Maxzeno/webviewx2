@@ -3,18 +3,16 @@ import 'dart:convert';
 import 'dart:html' as html;
 import 'dart:js' as js;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:pointer_interceptor/pointer_interceptor.dart';
-
-import 'package:webviewx/src/utils/dart_ui_fix.dart' as ui;
-import 'package:webviewx/src/utils/constants.dart';
-import 'package:webviewx/src/utils/logger.dart';
-import 'package:webviewx/src/utils/utils.dart';
-import 'package:webviewx/src/controller/impl/web.dart';
-import 'package:webviewx/src/controller/interface.dart' as ctrl_interface;
-import 'package:webviewx/src/view/interface.dart' as view_interface;
+import 'package:webviewx2/src/controller/impl/web.dart';
+import 'package:webviewx2/src/controller/interface.dart' as ctrl_interface;
+import 'package:webviewx2/src/utils/constants.dart';
+import 'package:webviewx2/src/utils/dart_ui_fix.dart' as ui;
+import 'package:webviewx2/src/utils/logger.dart';
+import 'package:webviewx2/src/utils/utils.dart';
+import 'package:webviewx2/src/view/interface.dart' as view_interface;
 
 /// Web implementation
 class WebViewX extends StatefulWidget implements view_interface.WebViewX {

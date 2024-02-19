@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:webviewx/webviewx.dart';
+import 'package:webviewx2/webviewx.dart';
 
 import 'helpers.dart';
 

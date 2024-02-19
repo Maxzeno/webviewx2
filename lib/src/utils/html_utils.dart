@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:path/path.dart' as p;
 import 'package:uuid/uuid.dart';
-import 'package:webviewx/src/utils/constants.dart';
-import 'package:webviewx/src/utils/embedded_js_content.dart';
+import 'package:webviewx2/src/utils/constants.dart';
+import 'package:webviewx2/src/utils/embedded_js_content.dart';
 
 /// Specifies where to embed ("burn") the javascript inside the HTML source
 enum EmbedPosition {

@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:webviewx/src/utils/source_type.dart';
+import 'package:webviewx2/src/utils/source_type.dart';
 
 /// Model class for webview's content
 ///

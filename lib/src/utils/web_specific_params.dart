@@ -1,6 +1,6 @@
-import 'package:webviewx/src/utils/css_loader.dart';
-import 'package:webviewx/src/utils/source_type.dart';
-import 'package:webviewx/src/utils/utils.dart';
+import 'package:webviewx2/src/utils/css_loader.dart';
+import 'package:webviewx2/src/utils/source_type.dart';
+import 'package:webviewx2/src/utils/utils.dart';
 
 /// Parameters specific to the web version.
 ///
