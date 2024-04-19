@@ -1,15 +1,15 @@
+// ignore_for_file: noop_primitive_operations, avoid_dynamic_calls
+
 import 'dart:async' show Future;
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:webviewx2/src/controller/interface.dart' as i;
 import 'package:webviewx2/src/utils/logger.dart';
-import 'package:webviewx2/src/utils/source_type.dart';
 import 'package:webviewx2/src/utils/utils.dart';
 import 'package:webviewx2/src/utils/web_history.dart';
-
-import 'package:webviewx2/src/controller/interface.dart' as i;
 
 /// Web implementation
 class WebViewXController extends ChangeNotifier
@@ -89,10 +89,10 @@ class WebViewXController extends ChangeNotifier
     WebViewContent newContent;
 
     if (fromAssets) {
-      final _contentFromAssets = await rootBundle.loadString(content);
+      final contentFromAssets = await rootBundle.loadString(content);
 
       newContent = WebViewContent(
-        source: _contentFromAssets,
+        source: contentFromAssets,
         sourceType: sourceType,
         headers: headers,
         webPostRequestBody: body,

@@ -1,5 +1,3 @@
-import 'package:webviewx2/src/utils/css_loader.dart';
-import 'package:webviewx2/src/utils/source_type.dart';
 import 'package:webviewx2/src/utils/utils.dart';
 
 /// Parameters specific to the web version.

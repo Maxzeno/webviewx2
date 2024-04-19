@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+
 import 'package:path/path.dart' as p;
 import 'package:uuid/uuid.dart';
 import 'package:webviewx2/src/utils/constants.dart';
@@ -13,16 +14,17 @@ enum EmbedPosition {
   aboveHeadCloseTag,
 }
 
+// ignore: avoid_classes_with_only_static_members
 /// HTML utils: wrappers, parsers, splitters etc.
 class HtmlUtils {
   /// Checks if the source looks like HTML
-  static bool isFullHtmlPage(String src) {
-    final _src = src.trim().toLowerCase();
-    return _src.startsWith(RegExp('<!DOCTYPE html>', caseSensitive: false)) &&
+  static bool isFullHtmlPage(String source) {
+    final src = source.trim().toLowerCase();
+    return src.startsWith(RegExp('<!DOCTYPE html>', caseSensitive: false)) &&
         // I didn't forget the closing bracket here.
         // Html opening tag may also have some random attributes.
-        _src.contains(RegExp('<html', caseSensitive: false)) &&
-        _src.contains(RegExp('</html>', caseSensitive: false));
+        src.contains(RegExp('<html', caseSensitive: false)) &&
+        src.contains(RegExp('</html>', caseSensitive: false));
   }
 
   /// Wraps markup in HTML tags
@@ -48,20 +50,20 @@ class HtmlUtils {
   /// embeds ("burns") javascript functions inside the HTML source, wraps it
   /// and/or URI-encodes it.
   static String preprocessSource(
-    String src, {
+    String source, {
     Set<EmbeddedJsContent> jsContent = const {},
     bool forWeb = false,
     bool encodeHtml = false,
     String? windowDisambiguator,
   }) {
-    var _src = src;
+    var src = source;
 
-    if (!isFullHtmlPage(_src)) {
-      _src = wrapHtml(_src, windowDisambiguator);
+    if (!isFullHtmlPage(src)) {
+      src = wrapHtml(src, windowDisambiguator);
     }
 
     if (forWeb) {
-      _src = embedWebIframeJsConnector(_src, windowDisambiguator!);
+      src = embedWebIframeJsConnector(src, windowDisambiguator!);
     }
 
     if (jsContent.isNotEmpty) {
@@ -77,14 +79,14 @@ class HtmlUtils {
           }
         }
       }
-      _src = embedJsInHtmlSource(_src, jsContentStrings);
+      src = embedJsInHtmlSource(src, jsContentStrings);
     }
 
     if (encodeHtml) {
-      _src = encodeHtmlToURI(_src);
+      src = encodeHtmlToURI(src);
     }
 
-    return _src;
+    return src;
   }
 
   /// Encodes HTML to URI
@@ -110,7 +112,9 @@ class HtmlUtils {
   ///
   /// Pretty raw, I know, but it works
   static String encodeImageAsEmbeddedBase64(
-      String fileName, Uint8List imageBytes) {
+    String fileName,
+    Uint8List imageBytes,
+  ) {
     const imageWidth = '100%';
     final base64Image = '<img width="$imageWidth" src="data:image/png;base64, '
         '${base64Encode(imageBytes)}" data-filename="$fileName">';
@@ -184,7 +188,10 @@ class HtmlUtils {
   /// it's attributes (if any), and it will append `toInject` to it, such as the original
   /// `htmlTag` will now have `toInject` as it's first child (by child we mean HTML DOM child)
   static String injectAsChildOf(
-      String htmlTag, String source, String toInject) {
+    String htmlTag,
+    String source,
+    String toInject,
+  ) {
     final replaceSpot = '<$htmlTag([^>]*)>';
     return source.replaceFirstMapped(RegExp(replaceSpot, caseSensitive: false),
         (match) {
@@ -231,11 +238,13 @@ class HtmlUtils {
   /// will also call latter iframes' "connect_js_to_flutter" callbacks, thus messing up
   /// others' functions and, well, everything.
   static String embedWebIframeJsConnector(
-      String source, String windowDisambiguator) {
+    String source,
+    String windowDisambiguator,
+  ) {
     return embedJsInHtmlSource(
       source,
       {
-        'parent.$jsToDartConnectorFN$windowDisambiguator && parent.$jsToDartConnectorFN$windowDisambiguator(window)'
+        'parent.$jsToDartConnectorFN$windowDisambiguator && parent.$jsToDartConnectorFN$windowDisambiguator(window)',
       },
       position: EmbedPosition.aboveHeadCloseTag,
     );
@@ -261,7 +270,9 @@ class HtmlUtils {
 
   /// Embeds click listeners inside the page and calls Dart callback when triggered
   static String embedClickListenersInPageSource(
-      String pageUrl, String pageSource) {
+    String pageUrl,
+    String pageSource,
+  ) {
     return embedInHtmlSource(
       source: pageSource,
       whatToEmbed: '''

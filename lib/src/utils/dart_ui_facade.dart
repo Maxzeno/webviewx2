@@ -1,3 +1,4 @@
+// ignore: avoid_classes_with_only_static_members
 /// This is here just to suppress the missing warning from "web.dart".
 // ignore: camel_case_types
 class platformViewRegistry {

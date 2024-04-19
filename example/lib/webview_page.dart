@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:webviewx2/webviewx.dart';
+import 'package:webviewx2/webviewx2.dart';
 
 import 'helpers.dart';
 
@@ -107,9 +107,7 @@ class _WebViewXPageState extends State<WebViewXPage> {
       webSpecificParams: const WebSpecificParams(
         printDebugInfo: true,
       ),
-      mobileSpecificParams: const MobileSpecificParams(
-        androidEnableHybridComposition: true,
-      ),
+      mobileSpecificParams: const MobileSpecificParams(),
       navigationDelegate: (navigation) {
         debugPrint(navigation.content.sourceType.toString());
         return NavigationDecision.navigate;

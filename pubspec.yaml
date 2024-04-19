@@ -2,21 +2,23 @@ name: webviewx2
 description: A feature-rich cross-platform webview using webview_flutter for
   mobile and iframe for web. JS interop-ready.
 homepage: https://github.com/Maxzeno/webviewx2
-version: 1.0.0
+version: 2.0.0
 
 environment:
-  sdk: ">=2.12.0 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.2.5 <4.0.0"
+  flutter: ">=3.16.6"
 
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.13.3
-  path: ^1.8.0
-  pointer_interceptor: ^0.9.0+1
-  uuid: ^3.0.4
-  webview_flutter: ^3.0.4
+  http: ">=1.2.0 <2.0.0"
+  path: ">=1.8.2 <2.0.0"
+  pointer_interceptor: ">=0.9.3+4 <1.0.0"
+  uuid: ">=3.0.7 <5.0.0"
+  webview_flutter: ^4.7.0
+  webview_flutter_android:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  lint: ^2.3.0

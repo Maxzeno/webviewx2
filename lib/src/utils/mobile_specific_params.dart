@@ -40,14 +40,10 @@ class MobileSpecificParams {
   /// Same as the original one from webview_flutter.
   final bool gestureNavigationEnabled;
 
-  /// Enable WebView hybrid composition
-  final bool androidEnableHybridComposition;
-
   /// Constructor
   const MobileSpecificParams({
     this.mobileGestureRecognizers,
     this.gestureNavigationEnabled = false,
     this.debuggingEnabled = false,
-    this.androidEnableHybridComposition = false,
   });
 }

@@ -82,12 +82,12 @@ class NavigationContent {
 }
 
 /// Error returned in `WebView.onWebResourceError` when a web resource loading error has occurred.
-class WebResourceError {
-  /// Creates a new [WebResourceError]
+class WebxResourceError {
+  /// Creates a new [WebxResourceError]
   ///
   /// A user should not need to instantiate this class, but will receive one in
   /// [WebResourceErrorCallback].
-  const WebResourceError({
+  const WebxResourceError({
     required this.errorCode,
     required this.description,
     this.domain,
@@ -132,7 +132,7 @@ class WebResourceError {
   final String? failingUrl;
 }
 
-/// Possible error type categorizations used by [WebResourceError].
+/// Possible error type categorizations used by [WebxResourceError].
 enum WebResourceErrorType {
   /// User authentication failed on server.
   authentication,
