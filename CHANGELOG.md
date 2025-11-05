@@ -1,3 +1,7 @@
+## 2.1.0
+
+- ui.platformViewRegistry.registerViewFactory fixed
+
 ## 2.0.0
 
 - Updated the dependencies
